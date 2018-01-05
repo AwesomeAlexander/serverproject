@@ -8,7 +8,7 @@ const port = 3000;
  */
 Date.prototype.timestamp = function() {
     return `[${this.toJSON().slice(0,10).replace(/-/g,'/')} ${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}]`;
-}
+};
 
 /*
  * Logging functionality middleware
