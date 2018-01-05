@@ -1,3 +1,5 @@
+'esversion: 6';
+
 // Initial setup and constants
 const express = require('express');
 const app = express();
