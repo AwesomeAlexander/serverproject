@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 // Routing
-app.get('/',(req,res) => res.send('Hello World!'));
+app.use('/',require(`${__dirname}/routing/page.js`));
 
 // Start App
 app.listen(port,()=>{
