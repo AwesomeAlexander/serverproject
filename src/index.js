@@ -1,7 +1,7 @@
 
 // Initial setup and constants
 const Express = require('express');
-const app = express();
+const app = Express();
 const port = 3000;
 
 // app.use((err, req, res, next) => {
