@@ -2,7 +2,7 @@
   "name": "serverproject",
   "version": "1.0.0",
   "description": "Test running a web server",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "express": "^4.16.2"
   },
