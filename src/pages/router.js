@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Routing here
 router.get('/',(req,res)=>{
-    res.sendFile('index.html');
+	res.sendFile('index.html');
 });
 
 // Exporting
