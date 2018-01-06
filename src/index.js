@@ -1,3 +1,5 @@
+console.log('hi');
+
 // Initial setup and constants
 const express = require('express');
 const app = express();
