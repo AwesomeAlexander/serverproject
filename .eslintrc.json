@@ -35,6 +35,12 @@
         ],
         "no-console": [
             "off"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-empty": [
+            "warn"
         ]
     }
 }
