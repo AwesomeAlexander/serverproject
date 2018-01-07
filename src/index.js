@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use('/',require('./pages/router.js'))
+app.use('/',require('./pages/router.js'));
 
 // Start App
 app.listen(port,()=>{
