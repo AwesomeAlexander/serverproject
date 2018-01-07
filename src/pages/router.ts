@@ -3,13 +3,13 @@
  */
 
 // Constants & Setup
-const express = require('express');
+import express = require('express');
 const router = express.Router();
 
 // Routing here
 router.get('/',(req,res)=>{
-	res.sendFile('index.html');
+	res.sendFile(`${__dirname}/index.html`);
 });
 
 // Exporting
-module.exports = router;
+exports = router;
