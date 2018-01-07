@@ -3,7 +3,7 @@
  */
 
 // Constants & Setup
-import express = require('express');
+const express = require('express');
 const router = express.Router();
 
 // Routing here
@@ -12,4 +12,4 @@ router.get('/',(req,res)=>{
 });
 
 // Exporting
-exports = router;
+module.exports = router;
