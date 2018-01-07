@@ -26,11 +26,11 @@ app.use((req, res, next) => {
 var fileReader = (filePath="") => fs.readdir(filePath,"utf8",(err,files)=>{
 	if (err) console.error(err);
 	
-	// Detects whether this folder has a router
-	let router = files.find((f: string) => f==='router.js');
+	// Detects the file's router
+	let router = files[files.indexOf('router.js')];
 	if (!router) { // Goes through files and recursively calls for subfolders
 		files.forEach(f => {
-			if (!f.includes('.')) fileReader(path.join(filePath,f));
+			if (f.indexOf('.') > -1) fileReader(path.join(filePath,f));
 		});
 	} else { // Require router (exported by router.js) to process lowest file
 		// Handles 'pages' to replace with plain old '/' for website page display
@@ -41,8 +41,6 @@ var fileReader = (filePath="") => fs.readdir(filePath,"utf8",(err,files)=>{
 
 console.log(path.join(__dirname,"/pages").toString());
 fileReader(path.join(__dirname,"/pages"));
-
-
 
 // Start App
 app.listen(port,()=>{
