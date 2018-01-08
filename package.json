@@ -11,8 +11,8 @@
     "eslint-plugin-react": "^7.5.1"
   },
   "scripts": {
-	"test": "echo \"Testing is a success!\" && exit 0;",
-	"compile": "tsc; exit 0;"
+    "test": "echo \"Testing is a success!\" && exit 0;",
+    "compile": "tsc; exit 0;"
   },
   "author": "Alexander Ng",
   "license": "ISC"
