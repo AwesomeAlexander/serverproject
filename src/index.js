@@ -32,11 +32,11 @@ function logger(req, res, next) {
  * @param {*} res 
  * @param {*} next 
  */
-// function errorHandler(err,req,res,next) {
-// 	console.error(err);
-// 	res.send('An Error Occured!');
-// 	next();
-// }
+function errorHandler(err,req,res,next) {
+	console.error(err);
+	res.send('An Error Occured!');
+	next();
+}
 
 // For main path
 app.use('/',require('./router.js'));
