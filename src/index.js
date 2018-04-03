@@ -1,7 +1,7 @@
 // Initial setup and constants
 const express = require('express');
-// const path = require('path');
-// const fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 const app = express();
 const port = 3000;
 
@@ -11,7 +11,7 @@ const port = 3000;
  * Utility function to be able to get the short readable timestamp of an event
  */
 Date.prototype.timestamp = function() {
-	return `[${this.toJSON().slice(0,10).replace(/-/g,'/')} ${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}]`;
+	return `[${this.toJSON().slice(0,10)/*.replace(/-/g,'/')*/} ${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}]`;
 };
 
 /**
@@ -38,8 +38,15 @@ function errorHandler(err,req,res,next) {
 	next();
 }
 
-// For main path
-app.use('/',logger,require('./router.js'),errorHandler);
+// Code //
+
+// Main Router
+let router = require('./renderRouter.js')(path.join(__dirname,'pages'));
+// replacing require('./router.js')
+app.use('/',logger,router,errorHandler);
+
+// Public Resources
+app.use('/assets',express.static(path.join(__dirname,'assets')))
 
 // Start App
 app.listen(port,()=>{
