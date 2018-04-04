@@ -4,7 +4,7 @@ const fs = require('fs');
 
 /**
  * Generator function
- * Renders a rounder based on an input of the file directory,
+ * Renders a router based on an input of the file directory,
  * recursing down files until it hits a base
  */
 function render(filepath) {
