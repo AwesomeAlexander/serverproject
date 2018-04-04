@@ -39,7 +39,7 @@ function errorHandler(err,req,res,next) {
 }
 
 // For main path
-app.use('/',require('./router.js'));
+app.use('/',logger,require('./router.js'),errorHandler);
 
 // Start App
 app.listen(port,()=>{
