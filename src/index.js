@@ -45,7 +45,7 @@ let router = require('./renderRouter.js')(path.join(__dirname,'pages'));
 // replacing require('./router.js')
 app.use('/',logger,router,errorHandler);
 
-// Public Resources
+// Public Resources, TODO: fix, doesn't work
 app.use('/assets',express.static(path.join(__dirname,'assets')))
 
 // Start App
