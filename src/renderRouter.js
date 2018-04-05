@@ -31,11 +31,16 @@ function render(filepath) {
 		});
 	}
 
-	// Recurses down directories within this directory.
-	// Ignores ones that start with '_'
+	// Through all files
 	for (let file of files) {
+		// Ignores ones that start with '_'
+		if (file.startsWith('_')) continue;
+
+		// Recurses down directories within this directory.
 		let newFilepath = path.join(filepath,file);
-		if (!file.startsWith('_') && fs.lstatSync(newFilepath).isDirectory()) router.use('/'+file,render(newFilepath));
+		if (fs.lstatSync(newFilepath).isDirectory()) router.use('/'+file,render(newFilepath));
+		// Sets up 'get' for other files
+		else router.get(file,(req,res)=>res.sendFile(file));
 	}
 	
 	// Covering for someone trying to reach unknown pages.
