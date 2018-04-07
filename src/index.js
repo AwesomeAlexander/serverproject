@@ -16,20 +16,22 @@ Date.prototype.timestamp = function() {
 
 /**
  * Logs Things
- * @param {*} req 
- * @param {*} res 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
  * @param {*} next 
  */
 function logger(req, res, next) {
-	console.log(`${new Date().timestamp()} Recieved ${req.method} request to '${req.url}'`);
+	console.log(`${new Date().timestamp()} Recieved ${req.method} request to '${req.url}' from (IP ${req.ip})`);
 	next();
 }
 
+
+
 /**
  * Handles Errors 
- * @param {*} err 
- * @param {*} req 
- * @param {*} res 
+ * @param {Error} err 
+ * @param {Express.Request} req 
+ * @param {Express.Response} res 
  * @param {*} next 
  */
 function errorHandler(err,req,res,next) {

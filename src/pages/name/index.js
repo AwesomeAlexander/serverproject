@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/:name',(req,res) => {
-    res.send(`<h1>Hi there, ${req.params.name}!!!</h1>`);
+    res.send(`<h1>Why hello there, ${req.params.name}!!!</h1>`);
 });
 
 module.exports = router;
