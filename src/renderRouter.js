@@ -12,9 +12,10 @@ function render(filepath) {
 	let router = express.Router();
 	let files = fs.readdirSync(filepath,"utf8");
 
-	// If the directory has an index.js or router.js, use it as a Router and stop recursing.
+	// If the directory has an index.js, use it as a Router and stop recursing.
 	if (files.includes('index.js')) return router = require(path.join(filepath,'index.js'));
-	if (files.includes('router.js')) return router = require(path.join(filepath,'router.js'));
+	// If the directory has a router.js, use it as a Router but continue recursing.
+	if (files.includes('router.js')) router = require(path.join(filepath,'router.js'));
 
 	// ELSE:
 
